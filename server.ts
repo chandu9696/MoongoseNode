@@ -9,8 +9,6 @@ process.on('uncaughtException',(err:any)=>{
 })
 dotenv.config()
 const app=require('./backend//moongoseapi.ts')
-
-
 const server=app.listen(process.env.PORT || 5000,()=>{console.log('running')})
 
 process.on('unhandledRejection',(err:any)=>{
