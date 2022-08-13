@@ -3,10 +3,11 @@
 const express=require('express')
 // require('./connectDB')
 const cookieparser=require('cookie-parser')
-
+let cors = require('cors')
 const product=require('./routes/Productroute')
 const app=express()
 const error=require('./middleware/errorHandle')
+app.use(cors())
 app.use(express.json())
 app.use(cookieparser())
 const user=require('./routes/UserRoutes')
@@ -31,4 +32,5 @@ app.use('/api/v1',product)
 app.use('/api/v1',user)
 
 app.use(error)
+
 module.exports=app;
