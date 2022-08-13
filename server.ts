@@ -1,7 +1,23 @@
 import dotenv from 'dotenv';
-require('./connectDB')
+require('./backend/connectDB')
+
+//Will not appiled on typescript
+process.on('uncaughtException',(err:any)=>{
+    console.log('err'+err.message)
+    console.log('Server shutting down due to unhandled exception')
+    process.exit(1)
+})
 dotenv.config()
-const app=require('./moongoseapi.ts')
+const app=require('./backend//moongoseapi.ts')
 
 
-app.listen(process.env.PORT || 5000,()=>{console.log('running')})
+const server=app.listen(process.env.PORT || 5000,()=>{console.log('running')})
+
+process.on('unhandledRejection',(err:any)=>{
+    console.log('err'+err.message)
+    console.log('Server shutting down due to unhandled expression')
+    server.close(()=>{
+        process.exit(1)
+    })
+})
+
