@@ -6,6 +6,7 @@ const router=express.Router()
 // app.use(express.json())
 const {addProduct,getAllProducts,updateProduct,deleteProduct,getindProduct}=require('../controller/getAllProducts.ts')
 const {isAuthenticatedUser,authorizeRoles}=require('../middleware/auth.ts')
+
 router.route('/product/new').post(addProduct)
 router.route('/product').get(getAllProducts)
 // router.route('/getind/:_id').get(getindProduct)

@@ -32,12 +32,12 @@ exports.addProduct=catchAsync(async(req:any,res:any)=>{
     res.status(201).json({sucess:true,saved})
 })
 exports.getAllProducts=async(req:any,res:any,next:any)=>{
-    const countproduct=await Product.countDocuments()
+    // const countproduct=await Product.countDocuments()
     const apifeatures=new ApiFeatures1(Product.find(),req.query).search().filter().pagination(2)
     const data=await apifeatures.query
 
     // console.log(saved)
-    res.status(200).json({sucess:true,data,countproduct})}
+    res.status(200).json({sucess:true,data})}
 exports.getindProduct=async(req:any,res:any,next:any)=>{
 
 

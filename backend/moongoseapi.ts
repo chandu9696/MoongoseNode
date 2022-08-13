@@ -29,5 +29,6 @@ const user=require('./routes/UserRoutes')
 // app.get('/search/:key',searchProduct)
 app.use('/api/v1',product)
 app.use('/api/v1',user)
+
 app.use(error)
 module.exports=app;
