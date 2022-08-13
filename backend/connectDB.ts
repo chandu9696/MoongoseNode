@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config()
 const mongoose=require('mongoose')
-const url=process.env.MONGODB_URL
+const url=process.env.MONGODB_URL as string
 mongoose.connect(url).then((data:any)=>{
     console.log('connection created sucessfully'+data.connection.host)
 }).catch((err:any)=>{
