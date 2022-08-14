@@ -33,7 +33,7 @@ exports.addProduct=catchAsync(async(req:any,res:any)=>{
 })
 exports.getAllProducts=async(req:any,res:any,next:any)=>{
     // const countproduct=await Product.countDocuments()
-    const apifeatures=new ApiFeatures1(Product.find(),req.query).search().filter().pagination(2)
+    const apifeatures=new ApiFeatures1(Product.find(),req.query).search().filter().pagination(8)
     const data=await apifeatures.query
 
     // console.log(saved)
