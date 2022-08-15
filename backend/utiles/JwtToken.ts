@@ -12,7 +12,7 @@ const sendToken = (user:any, statusCode:any, res:any) => {
       // }
     };
 
-    res.status(statusCode).header({'Access-Control-Allow-Origin':true}).cookie("token", token, options).json({
+    res.status(statusCode).header({'Access-Control-Allow-Origin':'http://localhost:3000'}).cookie("token", token, options).json({
       success: true,
       user,
       token,
